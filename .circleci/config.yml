@@ -6,7 +6,14 @@ jobs:
     steps:
       - checkout
       - run: python main.py
+  test:
+    docker:
+      - image: cimg/python3.11
+    steps:
+      - checkout
+      - run: python tests.py 
 workflows:
-  build_now:
+  build&test:
     jobs:
       - build
+      - test
