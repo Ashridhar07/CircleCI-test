@@ -15,6 +15,7 @@ jobs:
   deploy: 
     docker:
       - image: cimg/python:3.11
+    steps:
       - checkout
       - run: echo "deploying on prod server"
 workflows:
