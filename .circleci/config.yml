@@ -13,8 +13,10 @@ jobs:
       - checkout
       - run: python tests.py 
   deploy:
+    docker:
+      - image: cimg/python:3.11
     steps:
-      - echo "deploying to prod server testing."
+      - run: echo "deploying to prod server testing."
 workflows:
   build&test:
     jobs:
