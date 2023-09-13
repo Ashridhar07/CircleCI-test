@@ -12,6 +12,9 @@ jobs:
     steps:
       - checkout
       - run: python tests.py 
+  deploy:
+    steps:
+      - echo "deploying to prod server testing."
 workflows:
   build&test:
     jobs:
@@ -19,3 +22,9 @@ workflows:
       - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              main
